@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>PT PT </title>
+</head>
+<body>
+    <div class="header ">
+        <div class="navbar navbar-expand-md">
+            <nav id="navbar">
+            <a href="/">
+                <img src="{% static 'main/css/img/logo.png'%}" class="logo"/>
+            </a>
+                <div class = "black-nav">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>≡</span>
+                    </button>
+                    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+                        <ul id="menu" class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a href="/">Home</a></li>
+                            <li class="nav-item"><a href="/contact">Contact</a></li>
+                            {% if user.is_authenticated %}
+                                <li class="nav-item"><div class="dropdown nav-item">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Hello {{ user.username }}
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/plan">My plan</a></li>
+                                        <li><a class="dropdown-item" href="/subscription">Subscription</a></li>
+                                        <li><a class="dropdown-item" href="/myinfo/">My information</a></li>
+                                        <li><hr class="dropdown-divide"></li>
+                                        <li><a class="dropdown-item" href="/logout/">Logout</a></li>
+                                    </ul>
+                                </div></li>
+                            {% else %}
+                                <li class="nav-item"><a href="/login/">Login</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div id="content" name = "content" class="content">
+            {% block content %}
+            {% endblock %}
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+        var navbar = document.getElementById("navbar")
+        var menu = document.getElementById("menu")
+
+        window.onscroll = function (){
+            if  (window.pageYOffset > 0){
+                navbar.classList.add("sticky");
+            }
+            else{
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+</html>

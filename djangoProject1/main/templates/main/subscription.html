@@ -1,0 +1,48 @@
+{% extends "main/base.html" %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}"/>
+</head>
+
+
+{% block content  %}
+    {% csrf_token %}
+     <div class="container">
+        <div class="row">
+            <div class="col-md-6 planinfo">
+                <h1>Subscription detail</h1>
+                <p style="font-size: 26px;"><b>{{ plan }}</b></p>
+                <p style="margin-bottom:0"> next payment: </p>
+                <p> <b>{{ nextPayment }}</b></p>
+                {% if  numberOfDays > 31  %}
+                    <p style="margin-bottom:0" >price yearly:</p>
+                    <p>{{ priceYearly }}£ </p>
+                    {% if newPriceYearly %}
+                        <p style="margin-bottom:0"> New yearly price:</p>
+                        <p><b>{{ newPriceYearly }}£</b></p>
+                    {% endif %}
+                {% else %}
+                    <p style="margin-bottom:0">price monthly:</p>
+                    <p><b>{{ priceMonthly }}£</b></p>
+                    {% if newPriceMonthly %}
+                        <p style="margin-bottom:0"> New monthly price:</p>
+                        <p><b>{{ newPriceMonthly }}£ </b></p>
+                    {% endif %}
+                {% endif%}
+                {% if plan != nextPlan %}
+                     <p style="margin-bottom:0" >Your next plan:</p>
+                    <p><b>{{ nextPlan }}</b></p>
+                {% endif %}
+            </div>
+            <div class="col-md-6" style="margin-top: 15px">
+
+                <a class="btn btn-secondary d-block mb-2" href="/changePlan/">Change plan</a>
+                <form method="POST" action="/subscribe/cancel-subscription/" onsubmit="return confirm('Are you sure you want cancel subscription?');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary d-block mb-2">Cancel subscription</button>
+                </form>
+            </div>
+        </div>
+     </div>
+
+{% endblock %}

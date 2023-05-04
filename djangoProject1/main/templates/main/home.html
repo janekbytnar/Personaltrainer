@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<head>
+<style>
+    .navbar-toggler-icon {
+  background-image: url({% static 'main/css/img/logo.png'%});
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+}
+</style>
+</head>
+
+    <div class="row">
+    <div class="col-md-6">
+        <form>
+
+            <div class="mb-3">
+                <label for="first_name" class="form-label">Imię</label>
+                <input type="text" class="form-control" id="first_name">
+            </div>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Nazwisko</label>
+                <input type="text" class="form-control" id="last_name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Adres email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary me-3">Zmień nazwę</button>
+            <button type="submit" class="btn btn-primary">Zmień adres email</button>
+        </div>
+        <div class="text-end mt-3">
+            <button type="submit" class="btn btn-secondary">Zmień hasło</button>
+        </div>
+    </div>
+</div>
+Bcieżka do pliku CSS  Upewnij się, że ścieżka do pliku CSS jest poprawna i odpowiada strukturze Twojego projektu. Na przykład, jeśli plik CSS znajduje się w katalogu static/main/css, a szablon HTML w templates/main, to ścieżka powinna wyglądać tak:
+
+Plik CSS nie jest dostępny - Upewnij się, że plik CSS znajduje się w odpowiednim katalogu i że Django jest skonfigurowany do obsługi plików statycznych. Aby to sprawdzić, upewnij się, że django.contrib.staticfiles znajduje się na liście INSTALLED_APPS w pliku settings.py i że ustawienia plików statycznych są poprawnie skonfigurowane.
+
+Plik CSS nie jest prawidłowo sformatowany - Upewnij się, że plik CSS jest prawidłowo sformatowany i nie zawiera błędów składniowych. Możesz to sprawdzić, otwierając plik CSS i upewniając się, że nie ma żadnych błędów lub ostrzeżeń.
+
+Jeśli żadne z tych rozwiązań nie działa, może to oznaczać, że istnieje problem z konfiguracją Twojego projektu Django lub Twojego serwera HTTP. W takim przypadku należy dokładnie zbadać logi serwera HTTP i logi Django, aby znaleźć dalsze informacje na temat problemu.</a>
+        </a>
+
+        <a> Jeśli styles.css nie jest ładowany, możliwe przyczyny to:
+
+Błędna ścieżka do pliku CSS - Upewnij się, że ścieżka do pliku CSS jest poprawna i odpowiada strukturze Twojego projektu. Na przykład, jeśli plik CSS znajduje się w katalogu static/main/css, a szablon HTML w templates/main, to ścieżka powinna wyglądać tak:
+
+Plik CSS nie jest dostępny - Upewnij się, że plik CSS znajduje się w odpowiednim katalogu i że Django jest skonfigurowany do obsługi plików statycznych. Aby to sprawdzić, upewnij się, że django.contrib.staticfiles znajduje się na liście INSTALLED_APPS w pliku settings.py i że ustawienia plików statycznych są poprawnie skonfigurowane.
+
+Plik CSS nie jest prawidłowo sformatowany - Upewnij się, że plik CSS jest prawidłowo sformatowany i nie zawiera błędów składniowych. Możesz to sprawdzić, otwierając plik CSS i upewniając się, że nie ma żadnych błędów lub ostrzeżeń.
+
+Jeśli żadne z tych rozwiązań nie działa, może to oznaczać, że istnieje problem z konfiguracją Twojego projektu Django lub Twojego serwera HTTP. W takim przypadku należy dokładnie zbadać logi serwera HTTP i logi Django, aby znaleźć dalsze informacje na temat problemu.</a>
+        <a> Jeśli styles.css nie jest ładowany, możliwe przyczyny to:
+
+Błędna ścieżka do pliku CSS - Upewnij się, że ścieżka do pliku CSS jest poprawna i odpowiada strukturze Twojego projektu. Na przykład, jeśli plik CSS znajduje się w katalogu static/main/css, a szablon HTML w templates/main, to ścieżka powinna wyglądać tak:
+
+Plik CSS nie jest dostępny - Upewnij się, że plik CSS znajduje się w odpowiednim katalogu i że Django jest skonfigurowany do obsługi plików statycznych. Aby to sprawdzić, upewnij się, że django.contrib.staticfiles znajduje się na liście INSTALLED_APPS w pliku settings.py i że ustawienia plików statycznych są poprawnie skonfigurowane.
+
+Plik CSS nie jest prawidłowo sformatowany - Upewnij się, że plik CSS jest prawidłowo sformatowany i nie zawiera błędów składniowych. Możesz to sprawdzić, otwierając plik CSS i upewniając się, że nie ma żadnych błędów lub ostrzeżeń.
+
+Jeśli żadne z tych rozwiązań nie działa, może to oznaczać, że istnieje problem z konfiguracją Twojego projektu Django lub Twojego serwera HTTP. W takim przypadku należy dokładnie zbadać logi serwera HTTP i logi Django, aby znaleźć dalsze informacje na temat problemu.</a>
+
+{% endblock %}

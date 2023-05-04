@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="loginradio" autocomplete="off" value="login">
+        <label class="btn btn-outline-secondary" for="loginradio">Login</label>
+
+        <input type="radio" class="btn-check" name="btnradio" id="registerradio" autocomplete="off" value="registration">
+        <label class="btn btn-outline-secondary" for="registerradio">Registration</label>
+    </div>
+
+    <div id="loginOrRegister" name = "loginOrRegister" class ="loginOrRegister">
+        {% block loginOrRegister %}
+
+        {% endblock %}
+    </div>
+
+    <script>
+        $('input[type="radio"][name="btnradio"]').on('change', function() {
+            if ($(this).val() === 'login') {
+                window.location.href = '/login/';
+            } else if ($(this).val() === 'registration') {
+                window.location.href = '/register/';
+            }
+        });
+    </script>
+
+{% endblock %}

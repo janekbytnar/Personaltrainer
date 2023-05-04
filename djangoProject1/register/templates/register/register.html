@@ -1,0 +1,16 @@
+{% extends "register/loginOrRegister.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block loginOrRegister %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary">Registration</button>
+    </form>
+
+    <script>
+        var radioButton = document.getElementById("registerradio");
+        radioButton.checked = true;
+    </script>
+{% endblock %}

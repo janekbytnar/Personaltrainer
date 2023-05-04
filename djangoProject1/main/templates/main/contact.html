@@ -1,0 +1,43 @@
+{% extends "main/base.html" %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/styles.css' %}"/>
+</head>
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>NAME OF TRAINER</h1>
+            </div>
+        </div>
+        <div class = "row">
+            {% if request.user.is_authenticated %}
+                <div class="col-md-6 col-sm-12" >
+                    <form method ="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                        </div>
+                        {% if message %}
+                            <button type="submit" class="btn btn-secondary" disabled>{{ message }}</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-secondary">Send</button>
+                        {% endif %}
+                    </form>
+                </div>
+            {% else %}
+                <div class="col">
+                    <p><b>You are logged out</b></p>
+                    <p>To have access to message form log in or use alternative contact</p>
+                </div>
+            {% endif %}
+
+            <div class="col-md-6 col-sm-12">
+                <p style="margin-bottom: 0">Alternative contact:</p>
+                <p><b>TPTPT@PTTPPTP.com</b></p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

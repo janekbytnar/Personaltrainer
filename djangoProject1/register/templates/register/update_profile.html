@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            {% block personalInfo %}
+                <h3>Personal Information</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ editForm|crispy }}
+                    <div class="col">
+
+                        <button type="submit" class="btn btn-secondary subBut" name="update-info">Update Information</button>
+                    </div>
+                </form>
+                {% if editForm.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Error:</strong> {{ editForm.errors }}
+                    </div>
+                {% endif %}
+            {% endblock %}
+            </div>
+            <div class="col-md-6">
+
+                    {% block changepassword %}
+                        <a href = "/myinfo/password/" class="btn btn-dark changeBut">Change Password</a>
+                    {% endblock %}
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

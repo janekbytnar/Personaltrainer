@@ -1,0 +1,433 @@
+
+
+.header{
+    width: 100%;
+    height: 70vh;
+    background-image: url(img/powierzchowne-miesnie-grzebietu.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+nav{
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 2;
+}
+.logo{
+    width: 150px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.black-nav{
+    background: black;
+
+}
+
+button.navbar-toggler{
+    margin: 30px 0;
+}
+
+nav ul{
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+nav ul li{
+    display: block;
+    list-style: none;
+    margin: 20px 30px;
+}
+
+.content {
+    padding:20px 8%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 8%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 1s;
+}
+.sticky ul{
+    width: auto;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 20px 30px;
+}
+
+.dropdown button{
+    text-decoration: none;
+    font-size:25px;
+    color: #818181;
+}
+
+.dropdown button:hover{
+    color: #fff;
+}
+li.nav-item{
+    margin:20px 40px 20px 0;
+}
+
+p#collapse-button{
+    margin:0;
+}
+
+div.dropdown.nav-item {
+    margin: 0;
+}
+button#dropdownMenuButton1.btn.dropdown-toggle{
+    padding: 0;
+}
+
+ul.dropdown-menu.dropdown-menu-dark.show{
+    postion: fixed;
+    display: block;
+}
+.dropdown a{
+    text-decoration: none;
+    font-size:25px;
+    color: #818181
+}
+
+.dropdown a:hover{
+    color: #fff
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #818181;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: #fff;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size:25px;
+    color: #818181
+}
+
+nav ul li a:hover{
+    color: #fff
+}
+
+
+@media screen and (max-width: 768px) {
+    body .box{
+        width: 100%;
+        height: 200px;
+        display: block;
+        margin: 0 0 10px 0;
+    }
+}
+
+.box{
+    margin: 0 0 10px 0;
+    padding: 0;
+    width: 45%;
+    height: 200px;
+    display:inline-block;
+    border: 2px solid black;
+}
+
+.left {
+    margin-right: 5%;
+    float:left;
+}
+
+.right {
+    margin-left: 5%;
+    float:right;
+    height: 410px;
+}
+.justify-content-center{
+    margin-bottom: 20px;
+}
+.navbar-toggler-icon{
+}
+
+.radio-table-exercise {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.radio-table-exercise th, td {
+    text-align: left;
+    padding: 0;
+    border: 1px solid #ddd;
+}
+
+.radio-table-exercise th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.radio-table-exercise tr:hover {
+    background-color: #f5f5f5;
+    color: black;
+    cursor: pointer;
+}
+
+.radio-table-exercise input[type="radio"] {
+    display: none;
+}
+
+.radio-table-exercise input[type="radio"] + label {
+    cursor: pointer;
+    display: block;
+    padding: 0;
+}
+
+.radio-table-exercise input[type="radio"] + label:hover {
+    background-color: #f5f5f5;
+}
+
+.selected {
+    background-color: grey;
+    color: white;
+}
+
+.nav-item{
+    width:100%;
+}
+
+.navbar-nav{
+    width:100%
+}
+
+button.navbar-toggler {
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 3px solid black;
+}
+
+.planinfo {
+    border: 1px solid black;
+}
+
+
+.radio-table-plan {
+    border-collapse: separate;
+    border-spacing: 0px 1px;
+    width: 100%;
+}
+.radio-table-plan td,
+.radio-table-plan th {
+    border-bottom: 1px solid #e1e1e1;
+    border-right : 1px solid #e1e1e1;
+}
+
+.radio-table-plan th, td {
+    text-align: left;
+    padding: 0;
+    border: 1px solid #ddd;
+}
+
+.radio-table-plan th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.radio-table-plan tr:hover {
+    background-color: #f5f5f5;
+    color: black;
+    cursor: pointer;
+}
+
+.radio-table-plan input[type="radio"] {
+    display: none;
+}
+
+.radio-table-plan input[type="radio"] + label {
+    cursor: pointer;
+    display: block;
+    padding: 0;
+}
+
+.radio-table-plan input[type="radio"] + label:hover {
+    background-color: #f5f5f5;
+}
+.cancelButton{
+    display: flex;
+}
+.submitButton button {
+  margin-right: 10px;
+}
+
+.cancelButton button {
+  margin-left: auto;
+}
+@media only screen and (max-width: 610px) {
+    .row .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .row .col.submitButton {
+        order: 1;
+    }
+    .row .col.submitButton button {
+        width: 100%;
+    }
+
+    .row .col.cancelButton {
+        order: 2;
+    }
+    .row .col.cancelButton button {
+        width: 100%;
+    }
+}
+
+button.btn.btn-secondary.subBut {
+    width:100%;
+    margin-bottom: 10px;
+}
+a.btn.btn-dark.changeBut{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#planDescription{
+    min-width: 251.83px;
+    width: 100%;
+    overflow-y: scroll;
+    margin-left: 5%;
+    float:right;
+}
+@media only screen and (max-width: 610px) {
+    #planDescription {
+        min-width: 0;
+    }
+}
+
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+
+    padding: 10px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+#submit:hover {
+    filter: contrast(120%);
+}
+
+#submit {
+    font-feature-settings: "pnum";
+    --body-color: #f7fafc;
+    --button-color: #556cd6;
+    --accent-color: #556cd6;
+    --gray-border: #e3e8ee;
+    --link-color: #fff;
+    --font-color: #697386;
+    --body-font-family: -apple-system,BlinkMacSystemFont,sans-serif;
+    --radius: 4px;
+    --form-width: 400px;
+    -webkit-box-direction: normal;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    font: inherit;
+    overflow: visible;
+    -webkit-appearance: button;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    padding: 0 12px;
+    line-height: 32px;
+    outline: none;
+    text-decoration: none;
+    text-transform: none;
+    margin-right: 8px;
+    height: 36px;
+    border-radius: var(--radius);
+    color: #fff;
+    border: 0;
+    margin-top: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s ease;
+    display: block;
+    box-shadow: 0 4px 5.5px 0 rgba(0,0,0,.07);
+    width: 100%;
+    background: var(--button-color);
+}
+
+
+div.plan-option.text-right input[type="radio"] {
+    display: none;
+}
+
+div.plan-option.text-right label {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+div.plan-option.text-right input[type="radio"]:checked + label {
+    background-color: #ddd;
+}
+
+
+div.plan-option.text-right {
+    display: flex;
+}
+
+div.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.card.mx-5.shadow {
+    height: 100%;
+}
+
+

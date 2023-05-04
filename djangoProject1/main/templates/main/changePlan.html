@@ -1,0 +1,143 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+
+    <form method="post" action="#">
+        {% csrf_token %}
+        <h1 class="row justify-content-center"> your current plan is: {{ plan }}</h1>
+        <div class="container-md">
+        <div class="navbar navbar-expand-md">
+
+            <button class="navbar-toggler nav-item" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#sexSupportedContent" aria-controls="sexSupportedContent" aria-expanded="false"
+                      aria-label="Toggle navigation">
+                <span><p id="collapse-button"></p></span>
+            </button>
+
+            <div class="collapse navbar-collapse"  id="sexSupportedContent">
+                <input type="radio" class="btn-check" name="sexRadio" id="maleradio" autocomplete="off" value="male">
+                <label class="btn btn-outline-secondary nav-item" for="maleradio">male</label>
+
+                <input type="radio" class="btn-check" name="sexRadio" id="femaleradio" autocomplete="off" value="female">
+                <label class="btn btn-outline-secondary nav-item" for="femaleradio">female</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div id="planList" name = "planList" class ="planList box left" style = "overflow-y: scroll; width:100%;"></div>
+            </div>
+            <div class="col">
+                <div id="planDescription" name = "planDescription" class ="box"></div>
+            </div>
+        </div>
+        <div class="row button-container">
+            <div class="col submitButton">
+                <button type="submit" class="btn btn-secondary subBut">Submit</button>
+            </div>
+            <div class="col cancelButton">
+                <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'subscription' %}'">Cancel</button>
+            </div>
+        </div>
+        </div>
+
+        <script>
+            var radioButtons = document.getElementsByName('sexRadio');
+            var plans = JSON.parse('{{ plans | safe }}');
+            var currentSex = JSON.parse('{{ currentSex | safe }}')
+            currentSex = currentSex.currentSex
+            var planRadioButton;
+            var selectedValue = currentSex
+            var item;
+            var selectedValueDescription;
+            var descriptionContent;
+            var longDescriptionArray;
+
+            radioButtons.forEach((radioButton) => {
+                radioButton.addEventListener('click', () => {
+                    document.getElementById("collapse-button").innerHTML = radioButton.value;
+                    selectedValue = radioButton.value;
+                    changeDivContent();
+                });
+            });
+
+
+
+            function changeDivContent (){
+                var planList = '';
+                for (var i = 0; i < plans.length; i++) {
+                    item = plans[i];
+                    if (item.sex == selectedValue) {
+                            planList += '' +
+                            '<tr>' +
+                                '<td>' +
+                                    '<input type="radio" class="list-item" name="planRadio" id="' + item.description +
+                                '" autocomplete="off" value="' + item.plan + '">' +
+                                    '<label for="' + item.plan + '">' + item.plan + '</label>' +
+                                '</td>' +
+                                '<td>' + item.description +'</td>' +
+                                '<td>' + item.priceMonthly +'£</td>' +
+                                '<td>' + item.priceYearly +'£</td>' +
+                                '</tr>';
+                        }
+                    }
+                    var newContent = '' +
+                        '<table class="radio-table-plan" id="radio-table-plan">' +
+                            '<thead>' +
+                                '<tr>' +
+                                    '<th>Plan</th>' +
+                                    '<th>Description</th>' +
+                                    '<th>Monthly</th>' +
+                                    '<th>Yearly</th>' +
+                                '</tr>' +
+                            '</thead>' +
+                            '<tbody>' +
+                                planList +
+                            '</tbody>' +
+                        '</table>'
+
+                    document.getElementById("planList").innerHTML = newContent ;
+                    planRadioButton = document.getElementsByName('planRadio');
+                    longDescriptionArray = new Array()
+                    changeDescriptionContent()
+                    $(document).ready(function() {
+                    $('#radio-table-plan tbody tr').click(function() {
+                        $('input[type="radio"]', this).prop('checked', true);
+                        $('#radio-table-plan tbody tr').removeClass('selected');
+                        $(this).addClass('selected');
+                        var selectedRadio = $('input[type="radio"]:checked', this);
+                        var planDescriptionSearch = plans.find(function(item) {
+                            console.log(selectedRadio.val());
+                            return item.plan == selectedRadio.val();
+                        });
+                        longDescription = planDescriptionSearch.descriptionLong
+                        longDescriptionArray = longDescription.split(" / ");
+                        changeDescriptionContent()
+                    });
+                });
+
+            }
+            function changeDescriptionContent() {
+                descriptionContent  = "<h4>Benefits of that plan:</h4><ul>"
+                longDescriptionArray.forEach(function(element) {
+                    descriptionContent += '<li style="color: green;">' + element + '</li>'
+                });
+                descriptionContent += "</ul>"
+                document.getElementById("planDescription").innerHTML = descriptionContent;
+            }
+
+
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].value == currentSex) {
+                    radioButtons[i].checked = true;
+                    document.getElementById("collapse-button").innerHTML = radioButtons[i].value;
+                    break;
+                }
+            }
+            changeDivContent()
+        </script>
+    </form>
+{% endblock %}
